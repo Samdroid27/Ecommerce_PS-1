@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Ecommerce_PS1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Ecommerce_PS1/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
