@@ -2,8 +2,8 @@
 {% block css %}
 .col-md-3
 {
-display: inline-block;
-margin-left:-4px;
+    display: inline-block;
+    margin-left:-4px;
 }
 .carousel-indicators .active {
 background-color: blue;
@@ -19,24 +19,41 @@ background-color: blue;
             margin-left: 20px;
         }
 body .carousel-indicator li{
-background-color: blue;
+    background-color: blue;
 }
 body .carousel-indicators{
-bottom: 0;
+    bottom: 0;
+}
+body{
+    background : url("../../static/shop/index.jpg") no-repeat center center;
+    background-size:cover;
+    z-index:-1;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color:rgba(0,0,0,.125);
+    background-clip: border-box;
+    border-radius: .25rem;
+    color: black;
+    text-shadow: 1px 0 0 blue;
 }
 body .carousel-control-prev-icon,
 body .carousel-control-next-icon{
-background-color: black;
+    background-color: black;
 }
 .carousel-control-prev,
 .carousel-control-next{
-top: auto;
-bottom: auto;
-padding-top: 222px;
+    top: auto;
+    bottom: auto;
+    padding-top: 222px;
 }
 body .no-padding{
-padding-left: 0,
-padding-right: 0;
+    padding-left: 0,
+    padding-right: 0;
 }
 {% endblock %}
 {% block body %}
@@ -57,7 +74,7 @@ padding-right: 0;
                 <div class="carousel-item active">
                     {% for i in product %}
                     <div class="col-xs-3 col-sm-3 col-md-3">
-                        <div class="card align-items-center" style="width: 17rem;">
+                        <div class="card align-items-center" style="width: 16.5rem;">
                             <img src='/media/{{i.image}}' class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
