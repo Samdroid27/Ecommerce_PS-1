@@ -1,9 +1,37 @@
 {% extends 'shop/basic.html' %}
-{% block title%} Checkout - My Awesome Cart{% endblock %}
+{% block title%} Checkout - Celebal Cart{% endblock %}
+
+{% block css %}
+
+    body{
+      margin:0px;
+      padding:0px;
+    }
+    body{
+      background:url("../../static/shop/checkout.jpg") no-repeat center center;
+      background-size:cover;
+      z-index:-1;
+    }
+    form{
+        margin-bottom:10px;
+        color:white;
+      }
+    .form-control{
+    color:#ffffff;
+    background-color:#f6f6f600;
+    border-radius:1.25rem;
+    }
+    h2{
+        padding:10px;
+        color: white;
+    }
+    
+{% endblock %}
 {% block body %}
 <div class="container">
+    <h2>Step 1 - Celebal Tech Cart Express Checkout - Review Your Cart Items</h2>
+    <div class="container" style= "background-color: rgba(0,0,0,0.3);padding: 10px;border-radius:1.25rem;">
     <div class="col my-4">
-        <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
         <div class="my-4">
             <ul class="list-group" id="items">
             </ul>
@@ -13,7 +41,7 @@
     <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs. <span id="totalPrice"></span></b>. Enter your details below & place your order. Thanks for using My Awesome Cart!</li>
   </ol>
 </nav>
-
+</div>
 
 
 
@@ -21,7 +49,7 @@
     </div>
     <div class="col my-4">
         <h2>Step 2 - Enter Address & Other Details:</h2>
-        <form method="post" action="/shop/checkout/">{% csrf_token %}
+        <form method="post" action="/shop/checkout/" style="padding : 20px;border-radius:1.25rem;background-color:rgba(0,0,0,0.5);">{% csrf_token %}
             <input type="hidden" name="itemsJson" id="itemsJson">
             <input type="hidden" name="amount" id="amount">
             <div class="form-row">

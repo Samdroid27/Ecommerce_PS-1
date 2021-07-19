@@ -8,21 +8,134 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Welcome To My Awesome Cart</title>
+    <title>Welcome To Celebal Cart</title>
   </head>
+
   <body>
-    <div class="jumbotron">
-  <h1 class="display-4">Welcome To My Awesome Cart</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="/shop" role="button">Go To Shop</a>
+ <style>
+   .row{
+    justify-content: space-evenly;
+   }
+   .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 7px;
+    padding-bottom: 8px;
+}
+ </style>
+<!--Signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Signup Here</h5>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <form class="form-group row g-3" action='/signup' method="POST">
+          <div class="col-md-12">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+          </div>
+          <div class="col-md-6">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First Name" required>
+          </div>
+          <div class="col-md-6">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name" required>
+          </div>
+          <div class="col-12">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter email id" required>
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Enter password" required>
+          </div>
+          <div class="col-md-6">
+            <label for="confirmInputPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmInputPassword" name="confirmInputPassword" placeholder="Confirm password" required>
+          </div>
+          {% csrf_token %}
+          <div style="align-items: center;"><button type="submit" class="btn btn-primary">Submit</button></div>
+         </form>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!--Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login Here</h5>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <form class="form-group row g-3" action="/login" method="POST">
+           {% csrf_token %}
+          <div class="col-md-12">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter Username" required>
+          </div>
+          <div class="col-md-12">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="logininputPassword" name="logininputPassword" placeholder="Enter password" required>
+          </div>          
+         
+          <div style="align-items: center;"><button type="submit" class="btn btn-primary">Submit</button></div>
+
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="jumbotron">
+  <h1 class="display-4">Welcome To Celebal Cart</h1>
+  <p class="lead">All in one solution for all your needs</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <!-- Button trigger modal -->
+ <button type="button" class="signup btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">
+  Signup
+</button>
+<button type="button" class="login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+  Login
+</button>
+
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+    <script>
+      signup = document.getElementsByClassName('signup');
+      Array.from(signup).forEach((element)=>{
+        element.addEventListener("click",(e)=>{
+            var myModal = new bootstrap.Modal(document.getElementById('signupModal'), {
+              keyboard: false
+            })
+            var modalToggle = document.getElementById('signupModal'); // relatedTarget
+            myModal.show(modalToggle);
+        })
+      })
+      login = document.getElementsByClassName('login');
+      Array.from(login).forEach((element)=>{
+        element.addEventListener("click",(e)=>{
+            var myModal = new bootstrap.Modal(document.getElementById('loginModal'), {
+              keyboard: false
+            })
+            var modalToggle = document.getElementById('loginModal'); // relatedTarget
+            myModal.show(modalToggle);
+        })
+      })
+    
+    </script>
   </body>
 </html>
