@@ -1,10 +1,32 @@
 {% extends 'shop/basic.html' %}
 {% block title%} Celebal Tech Tracker{% endblock %}
+{% block css %}
+
+    body{
+      margin:0px;
+      padding:0px;
+    }
+    body{
+      background:url("../../static/shop/track.jpg") no-repeat center center;
+      background-size:cover;
+      z-index:-1;
+    }
+    form{
+        margin-bottom:10px;
+        color:white;
+      }
+    .form-control{
+    color:#ffffff;
+    background-color:#f6f6f600;
+    border-radius:1.25rem;
+    }
+    
+{% endblock %}
 {% block body %}
 <div class="container">
     <div class="col my-4">
         <h2>Enter your Order Id and Email address to track your order</h2>
-        <form method="post" action="#" id="trackerForm">{% csrf_token %}
+        <form method="post" action="#" id="trackerForm" style="padding : 20px;border-radius:1.25rem;background-color:rgba(0,0,0,0.5);">{% csrf_token %}
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputname">Order Id</label>
