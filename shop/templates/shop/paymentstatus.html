@@ -1,15 +1,25 @@
 {% extends 'shop/basic.html' %}
-{% block title%} My Awesome Cart Tracker{% endblock %}
+{% block title%} Celebal Cart Tracker {% endblock %}
+{% block css %}
+body{
+  margin:0px;
+  padding:0px;
+}
+body{
+  background:url("../../static/shop/index (2).jpg") no-repeat center center;
+  background-size:cover;
+  z-index:-1;
+} {% endblock %}
 {% block body %}
+
 <div class="container">
-    {{response}}
     <div class="col my-4">
 
         <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
         {% if response.RESPCODE == '01' %}
         ORDER SUCCESS
         {% else %}
-        ORDER FAILURE
+        ORDER FAILURE - {{response.RESPMSG}}
         {% endif%}
 
     </div>
