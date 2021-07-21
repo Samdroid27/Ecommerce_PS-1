@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate,login,logout
 def index(request):
     return render(request, 'index.html')
 
+
+
 def handleLogin(request):
     if request.method == 'POST':
         loginusername = request.POST['loginusername']
